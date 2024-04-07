@@ -108,8 +108,10 @@ export default function Home() {
             <div className="flex gap-4 items-center">
               <span className="text-sm flex gap-2 items-center">
                 <Image
-                  src={session.user?.image as string}
-                  alt={session.user?.name as string}
+                  width={24}
+                  height={24}
+                  src={session.user?.image}
+                  alt={session.user?.name}
                   className="w-6 h-6 rounded-full"
                 />
                 {session.user?.name}
@@ -151,6 +153,8 @@ export default function Home() {
                 <Image
                   src={issue.user!.avatar_url}
                   alt={issue.user!.login}
+                  width={24}
+                  height={24}
                   className="w-6 h-6 rounded-full"
                 />
                 {issue.user!.login}
