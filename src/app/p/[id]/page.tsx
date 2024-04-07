@@ -77,7 +77,9 @@ export default function Post({ params: { id } }: { params: { id: string } }) {
                 }}
               />
             ) : (
-              "Loading..."
+              <span>
+                Loading...
+              </span>
             )}
           </CardContent>
         </Card>
