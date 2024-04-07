@@ -16,6 +16,7 @@ import { useBottomScrollListener } from "react-bottom-scroll-listener";
 import { Skeleton } from "@/components/ui/skeleton";
 import { repo, owner } from "@/lib/constants";
 import { useToast } from "@/components/ui/use-toast";
+import Image from "next/image";
 
 export default function Home() {
   const { data: session } = useSession();
@@ -86,7 +87,7 @@ export default function Home() {
     if (typeof session == "undefined") return;
     if (issues.length > 0) return;
     fetchIssues(1);
-  }, [session]);
+  }, [session, fetchIssues, issues.length]);
 
   useBottomScrollListener(
     () => {
@@ -106,7 +107,7 @@ export default function Home() {
           {session ? (
             <div className="flex gap-4 items-center">
               <span className="text-sm flex gap-2 items-center">
-                <img
+                <Image
                   src={session.user?.image as string}
                   alt={session.user?.name as string}
                   className="w-6 h-6 rounded-full"
@@ -147,7 +148,7 @@ export default function Home() {
               <div></div>
               <div className="pt-5 col-span-5 flex gap-2">
                 #{issue.number} - {format(issue.created_at)} by
-                <img
+                <Image
                   src={issue.user!.avatar_url}
                   alt={issue.user!.login}
                   className="w-6 h-6 rounded-full"

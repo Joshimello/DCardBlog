@@ -89,7 +89,7 @@ export default function Post({ params: { id } }: { params: { id: string } }) {
 
   useEffect(() => {
     fetchPost();
-  }, []);
+  }, [fetchPost]);
 
   return (
     <div className="w-full flex justify-center">
@@ -109,7 +109,7 @@ export default function Post({ params: { id } }: { params: { id: string } }) {
         </div>
 
         <span className="text-sm text-muted-foreground">
-          Editing post "{title}"
+          Editing post &#34;{title}&#34;
         </span>
 
         <Input
@@ -120,7 +120,7 @@ export default function Post({ params: { id } }: { params: { id: string } }) {
         />
 
         <span className="text-sm text-muted-foreground">
-          Press "/" or select text to see available editing options.
+          Press &#34;/&#34; or select text to see available editing options.
         </span>
 
         {initJSON && <Editor initialValue={initJSON} onChange={setValue} />}

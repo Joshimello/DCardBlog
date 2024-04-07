@@ -49,7 +49,7 @@ export default function Post({ params: { id } }: { params: { id: string } }) {
 
   useEffect(() => {
     fetchPost();
-  }, []);
+  }, [fetchPost]);
 
   return (
     <div className="w-full flex justify-center">

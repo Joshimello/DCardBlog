@@ -83,7 +83,7 @@ export default function Post() {
         />
 
         <span className="text-sm text-muted-foreground">
-          Press "/" or select text to see available editing options.
+          Press &#34;/&#34; or select text to see available editing options.
         </span>
 
         <Editor initialValue={undefined} onChange={setValue} />
