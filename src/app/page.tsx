@@ -23,7 +23,6 @@ export default function Home() {
   const [issues, setIssues] = useState<RestEndpointMethodTypes["issues"]["listForRepo"]["response"]["data"]>([]);
   const [state, setState] = useState('idle')
   const { toast } = useToast()
-  let firstLoad = false
 
   const fetchIssues = async (page: number) => {
     const octokit = new Octokit({
@@ -84,8 +83,7 @@ export default function Home() {
 
   useEffect(() => {
     if (typeof session == 'undefined') return
-    if (firstLoad) return
-    firstLoad = true
+    if (issues.length > 0) return
     fetchIssues(1)
   }, [session])
 
