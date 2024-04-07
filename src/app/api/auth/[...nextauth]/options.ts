@@ -1,5 +1,5 @@
-import type { AuthOptions } from "next-auth"
-import GitHubProvider from 'next-auth/providers/github'
+import type { AuthOptions } from "next-auth";
+import GitHubProvider from "next-auth/providers/github";
 
 export const options: AuthOptions = {
   providers: [
@@ -8,10 +8,10 @@ export const options: AuthOptions = {
       clientSecret: process.env.GITHUB_SECRET!,
       authorization: {
         params: {
-          scope: 'public_repo,issues:write'
-        }
-      }
-    })
+          scope: "public_repo,issues:write",
+        },
+      },
+    }),
   ],
   callbacks: {
     async session({ session, token }) {
@@ -19,7 +19,7 @@ export const options: AuthOptions = {
         ...session,
         id: token.sub,
         login: token.name,
-        accessToken: token.accessToken
+        accessToken: token.accessToken,
       };
     },
     async jwt({ token, account }) {
@@ -31,10 +31,10 @@ export const options: AuthOptions = {
     },
   },
   pages: {
-    signIn: '/',
-    signOut: '/',
-    error: '/',
-    verifyRequest: '/',
-    newUser: '/'
-  }
-}
+    signIn: "/",
+    signOut: "/",
+    error: "/",
+    verifyRequest: "/",
+    newUser: "/",
+  },
+};
