@@ -62,7 +62,7 @@ export default function Post({ params: { id } }: { params: { id: string } }) {
     })
 
     try {
-      await octokit.issues.create({
+      await octokit.issues.update({
         owner: owner,
         repo: repo,
         title: title,
