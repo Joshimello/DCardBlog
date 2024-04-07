@@ -13,11 +13,6 @@ export interface BubbleColorMenuItem {
   color: string;
 }
 
-interface ColorSelectorProps {
-  isOpen: boolean;
-  setIsOpen: Dispatch<SetStateAction<boolean>>;
-}
-
 const TEXT_COLORS: BubbleColorMenuItem[] = [
   {
     name: "Default",
@@ -101,7 +96,7 @@ interface ColorSelectorProps {
   onOpenChange: (open: boolean) => void;
 }
 
-export const ColorSelector = ({ open, onOpenChange }) => {
+export const ColorSelector = ({ open, onOpenChange }: ColorSelectorProps) => {
   const { editor } = useEditor();
 
   if (!editor) return null;
